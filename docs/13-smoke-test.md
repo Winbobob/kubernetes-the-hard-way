@@ -84,6 +84,8 @@ POD_NAME=$(kubectl get pods -l run=nginx -o jsonpath="{.items[0].metadata.name}"
 Forward port `8080` on your local machine to port `80` of the `nginx` pod:
 
 ```
+# Connections made to local port 8080 are forwarded to port 80 of the pod with nginx.
+# Due to known limitations, port forward today only works for TCP protocol.
 kubectl port-forward $POD_NAME 8080:80
 ```
 
